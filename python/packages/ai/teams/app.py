@@ -564,7 +564,7 @@ class Application(Bot, Generic[StateT]):
                     return False
                 await func(context, state, context.activity.value["continuation"])
                 await context.send_activity(
-                    Activity(type=ActivityTypes.invoke_response, value=InvokeResponse(status=200))
+                    Activity(type=ActivityTypes.invoke_response, value=InvokeResponse(status=200, body={}))
                 )
                 return True
 
@@ -618,7 +618,7 @@ class Application(Bot, Generic[StateT]):
 
                 await func(context, state, feedback)
                 await context.send_activity(
-                    Activity(type=ActivityTypes.invoke_response, value=InvokeResponse(status=200))
+                    Activity(type=ActivityTypes.invoke_response, value=InvokeResponse(status=200, body={}))
                 )
                 return True
 
